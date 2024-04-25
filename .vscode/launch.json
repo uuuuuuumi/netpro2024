@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "NetproLabMember",
+            "request": "launch",
+            "mainClass": "NetproLabMember",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "ggg",
+            "request": "launch",
+            "mainClass": "ggg",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "Kadai2HowOldAreYou3",
+            "request": "launch",
+            "mainClass": "Kadai2HowOldAreYou3",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "StringOperationTest",
             "request": "launch",
             "mainClass": "StringOperationTest",
