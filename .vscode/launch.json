@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiaryTCPClient",
+            "request": "launch",
+            "mainClass": "DiaryTCPClient",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "DiaryServer",
+            "request": "launch",
+            "mainClass": "DiaryServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "XmasTCPClient",
             "request": "launch",
             "mainClass": "XmasTCPClient",
