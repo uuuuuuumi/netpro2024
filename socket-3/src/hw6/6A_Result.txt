@@ -1,0 +1,21 @@
+UDPClient.java側
+
+Microsoft Windows [Version 10.0.22631.3593]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\takoy\OneDrive\デスクトップ\netpro2024> cmd /C "C:\Users\takoy\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin\java.exe @C:\Users\takoy\AppData\Local\Temp\cp_44bjktn5rbipivvlvhnq0uifj.argfile hw6.UDPServer "
+クライアントから受信: abc
+クライアントへ返信: ABC
+
+C:\Users\takoy\OneDrive\デスクトップ\netpro2024>
+
+UDPServer.java側
+
+Microsoft Windows [Version 10.0.22631.3593]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\takoy\OneDrive\デスクトップ\netpro2024> cmd /C "C:\Users\takoy\AppData\Roaming\Code\User\globalStorage\pleiades.java-extension-pack-jdk\java\21\bin\java.exe @C:\Users\takoy\AppData\Local\Temp\cp_44bjktn5rbipivvlvhnq0uifj.argfile hw6.UDPServer "
+クライアントから受信: abc
+クライアントへ返信: ABC
+
+C:\Users\takoy\OneDrive\デスクトップ\netpro2024>

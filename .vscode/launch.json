@@ -6,6 +6,125 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CountTenRunnable",
+            "request": "launch",
+            "mainClass": "hw6.CountTenRunnable",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "ExThreadsMainTest",
+            "request": "launch",
+            "mainClass": "hw6.ExThreadsMainTest",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "CountAZTenRunnable",
+            "request": "launch",
+            "mainClass": "hw6.CountAZTenRunnable",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MulticastClient",
+            "request": "launch",
+            "mainClass": "hw6.MulticastClient",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MulticastServer",
+            "request": "launch",
+            "mainClass": "hw6.MulticastServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPClient",
+            "request": "launch",
+            "mainClass": "hw6.UDPClient",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPServer",
+            "request": "launch",
+            "mainClass": "hw6.UDPServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "CountTenRunnable",
+            "request": "launch",
+            "mainClass": "thread.CountTenRunnable",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MulticastClient",
+            "request": "launch",
+            "mainClass": "udp.MulticastClient",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MulticastServer",
+            "request": "launch",
+            "mainClass": "udp.MulticastServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPClient",
+            "request": "launch",
+            "mainClass": "udp.UDPClient",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPServer",
+            "request": "launch",
+            "mainClass": "udp.UDPServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPClientWhile",
+            "request": "launch",
+            "mainClass": "udp.UDPClientWhile",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "UDPServerWhile",
+            "request": "launch",
+            "mainClass": "udp.UDPServerWhile",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MainCallBackLambda",
+            "request": "launch",
+            "mainClass": "work.MainCallBackLambda",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MainCallBack",
+            "request": "launch",
+            "mainClass": "work.MainCallBack",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "StringProcessing",
+            "request": "launch",
+            "mainClass": "basic.StringProcessing",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "TaskClientWhile",
             "request": "launch",
             "mainClass": "TaskClientWhile",
