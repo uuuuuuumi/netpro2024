@@ -6,6 +6,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GUIAniMultiTCPServer2",
+            "request": "launch",
+            "mainClass": "guichat.GUIAniMultiTCPServer2",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "GUIAnimationMain",
+            "request": "launch",
+            "mainClass": "guichat.GUIAnimationMain",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "GUIAniMultiTCPClient2",
+            "request": "launch",
+            "mainClass": "guichat.GUIAniMultiTCPClient2",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "SwingAnimationFaceObj",
+            "request": "launch",
+            "mainClass": "guibasic.SwingAnimationFaceObj",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MovingBallFacesAWT",
+            "request": "launch",
+            "mainClass": "guibasic.MovingBallFacesAWT",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "MovingBallAWT",
+            "request": "launch",
+            "mainClass": "guibasic.MovingBallAWT",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "FacesAWTMain",
+            "request": "launch",
+            "mainClass": "guibasic.FacesAWTMain",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "CountTenRunnable",
             "request": "launch",
             "mainClass": "hw6.CountTenRunnable",
