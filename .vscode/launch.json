@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FacesAWTKosekiUmi",
+            "request": "launch",
+            "mainClass": "guibasic.FacesAWTKosekiUmi",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "GUIAniMultiTCPServer2",
             "request": "launch",
             "mainClass": "guichat.GUIAniMultiTCPServer2",
