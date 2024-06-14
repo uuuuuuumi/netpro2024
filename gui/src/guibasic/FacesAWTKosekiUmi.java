@@ -13,7 +13,7 @@ import java.awt.event.WindowEvent;
 public class FacesAWTKosekiUmi {
 
     public static void main(String[] args){
-        new FacesAWTMain();
+        new FacesAWTKosekiUmi();
     }
 
     FacesAWTKosekiUmi(){
