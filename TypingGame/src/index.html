@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>タイピングゲーム</title>
+    <style>
+        /* 全体のスタイル設定 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        /* ゲームコンテナのスタイル設定 */
+        #game-container {
+            background-color: #f5deb3;
+            border: 2px solid #8b4513;
+            border-radius: 10px;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            position: relative;
+        }
+        /* タイマーのスタイル設定 */
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        /* 表示される単語のスタイル設定 */
+        #word {
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        /* 入力フィールドのスタイル設定 */
+        #input-field {
+            font-size: 24px;
+            padding: 10px;
+            width: 80%;
+        }
+        /* 結果とスコアのスタイル設定 */
+        #result, #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        /* カウントダウンのスタイル設定 */
+        #countdown {
+            font-size: 24px;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- タイマー表示 -->
+        <div id="timer">残り時間: 60秒</div>
+        <!-- 表示される単語 -->
+        <div id="word">ここに単語が表示されます</div>
+        <!-- 入力フィールド -->
+        <input type="text" id="input-field" placeholder="ここに入力" disabled>
+        <!-- 結果表示 -->
+        <div id="result"></div>
+        <!-- スコア表示 -->
+        <div id="score"></div>
+        <!-- カウントダウン表示 -->
+        <div id="countdown">3秒後にゲームが始まります...</div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const timerElement = document.getElementById('timer'); // タイマー要素の取得
+            const wordElement = document.getElementById('word'); // 単語要素の取得
+            const inputField = document.getElementById('input-field'); // 入力フィールドの取得
+            const resultElement = document.getElementById('result'); // 結果表示要素の取得
+            const scoreElement = document.getElementById('score'); // スコア表示要素の取得
+            const countdownElement = document.getElementById('countdown'); // カウントダウン表示要素の取得
+
+            let timeRemaining = 60; // ゲームの残り時間
+            let timerInterval; // タイマーのインターバル
+            let currentWord = ''; // 現在表示されている単語
+            let correctCount = 0; // 正解数のカウント
+            let resultTimeout; // 結果表示を消すタイマー
+
+            // サーバーから単語を取得する関数
+            async function fetchWord() {
+                try {
+                    const response = await fetch('http://localhost:8080/word'); // 単語を取得するリクエストを送信
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const word = await response.text(); // レスポンスからテキストを取得
+                    return word;
+                } catch (error) {
+                    console.error('Fetch error:', error);
+                    return "エラー";
+                }
+            }
+
+            // 単語を表示する関数
+            async function displayWord() {
+                currentWord = await fetchWord(); // 単語を取得
+                wordElement.textContent = currentWord; // 取得した単語を表示
+            }
+
+            // ゲームを開始する関数
+            async function startGame() {
+                correctCount = 0; // 正解数をリセット
+                await displayWord(); // 最初の単語を表示
+                inputField.value = ''; // 入力フィールドをリセット
+                inputField.focus(); // 入力フィールドにフォーカス
+                timeRemaining = 60; // ゲームの残り時間を設定
+                timerElement.textContent = `残り時間: ${timeRemaining}秒`; // タイマーを更新
+                resultElement.textContent = ''; // 結果表示をリセット
+                scoreElement.textContent = ''; // スコア表示をリセット
+                inputField.disabled = false; // 入力フィールドを有効化
+                timerInterval = setInterval(updateTimer, 1000); // 1秒ごとにタイマーを更新
+            }
+
+            // タイマーを更新する関数
+            function updateTimer() {
+                timeRemaining--; // 残り時間を減らす
+                timerElement.textContent = `残り時間: ${timeRemaining}秒`; // タイマーを更新
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval); // タイマーをクリア
+                    endGame(); // ゲーム終了
+                }
+            }
+
+            // ゲームを終了する関数
+            function endGame() {
+                wordElement.textContent = 'ゲーム終了！'; // 終了メッセージを表示
+                inputField.style.display = 'none'; // 入力フィールドを非表示
+
+                // スコアメッセージを作成
+                let scoreMessage = `あなたは${correctCount}人の名前を正しく入力しました。 `;
+                if (correctCount >= 20) {
+                    scoreMessage += "天才です！";
+                } else if (correctCount >= 10) {
+                    scoreMessage += "普通です。";
+                } else {
+                    scoreMessage += "まだまだです。";
+                }
+                scoreElement.textContent = scoreMessage; // スコアメッセージを表示
+            }
+
+            // 入力を送信する関数
+            async function submitInput() {
+                const typedWord = inputField.value.trim(); // 入力された単語を取得
+                clearTimeout(resultTimeout); // 前のタイマーをクリア
+                if (typedWord === currentWord) {
+                    resultElement.textContent = '正解です！'; // 正解メッセージを表示
+                    correctCount++; // 正解数を増やす
+                } else {
+                    resultElement.textContent = '間違いです。もう一度試してください。'; // 不正解メッセージを表示
+                }
+                resultTimeout = setTimeout(() => {
+                    resultElement.textContent = ''; // 1秒後に結果表示を消す
+                }, 1000); // 1秒後に消す
+                await displayWord(); // 次の単語を表示
+                inputField.value = ''; // 入力フィールドをリセット
+            }
+
+            // カウントダウンを表示する関数
+            function startCountdown() {
+                let countdown = 3; // カウントダウンの初期値
+                countdownElement.textContent = `${countdown}秒後にゲームが始まります...`;
+                const countdownInterval = setInterval(() => {
+                    countdown--; // カウントダウンを減らす
+                    if (countdown > 0) {
+                        countdownElement.textContent = `${countdown}秒後にゲームが始まります...`;
+                    } else {
+                        clearInterval(countdownInterval); // カウントダウンをクリア
+                        countdownElement.style.display = 'none'; // カウントダウン表示を非表示
+                        startGame(); // ゲーム開始
+                    }
+                }, 1000); // 1秒ごとにカウントダウン
+            }
+
+            // 入力フィールドのキーイベントリスナーを追加
+            inputField.addEventListener('keypress', async (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // エンターキーでフォーム送信しないようにする
+                    await submitInput(); // 入力を送信
+                }
+            });
+
+            startCountdown(); // ページロード時にカウントダウンを開始
+        });
+    </script>
+</body>
+</html>

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TypingGameClientGUI",
+            "request": "launch",
+            "mainClass": "TypingGameClientGUI",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
+            "name": "TypingGameServer",
+            "request": "launch",
+            "mainClass": "TypingGameServer",
+            "projectName": "netpro2024_e508aafb"
+        },
+        {
+            "type": "java",
             "name": "FacesAWTKosekiUmi",
             "request": "launch",
             "mainClass": "guibasic.FacesAWTKosekiUmi",
